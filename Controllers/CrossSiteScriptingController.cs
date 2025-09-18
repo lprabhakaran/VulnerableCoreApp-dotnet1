@@ -7,6 +7,14 @@ using VulnerableCoreApp.Repository;
 namespace VulnerableCoreApp.Controllers
 {
     public class CrossSiteScriptingController : Controller
+        // Vulnerable: Reflected XSS
+        [HttpGet]
+        public IActionResult ReflectedXSS(string input)
+        {
+            // Echo user input directly (unsafe)
+            ViewBag.UserInput = input;
+            return View();
+        }
     {
         private ICommentsRepository commentsRepository;
         public CrossSiteScriptingController(ICommentsRepository commentsRepository)

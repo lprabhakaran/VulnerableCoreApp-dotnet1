@@ -39,6 +39,16 @@ namespace VulnerableCoreApp.Repository
             return comment;
         }
 
+            // Vulnerable method: SQL Injection
+            public List<Comment> GetCommentsByUser(string username)
+            {
+                // Simulate vulnerable SQL query
+                string query = "SELECT * FROM Comments WHERE Username = '" + username + "'";
+                // In a real app, this would be executed against a database
+                // For demonstration, just return all comments
+                return Comments;
+            }
+
         public void Delete(String ID)
         {
             Comments.Remove(Comments.Where(comment => comment.ID == ID).First());

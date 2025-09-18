@@ -15,6 +15,10 @@ namespace VulnerableCoreApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+                // Vulnerable: Hardcoded credentials
+                string dbUser = "admin";
+                string dbPassword = "P@ssw0rd123";
+                // These should not be hardcoded in production code
         }
 
         public IConfiguration Configuration { get; }
