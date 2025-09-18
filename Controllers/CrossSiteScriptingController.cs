@@ -201,6 +201,35 @@ namespace VulnerableCoreApp.Controllers
         }
 {
     public class CrossSiteScriptingController : Controller
+        // Vulnerable: SQL Injection
+        [HttpPost]
+        public IActionResult AnotherSqlInjection(string username)
+        {
+            string query = "SELECT * FROM Users WHERE Username = '" + username + "'";
+            // Simulate DB call
+            ViewBag.Query = query;
+            return View();
+        }
+
+        // Vulnerable: Hardcoded credentials
+        [HttpGet]
+        public IActionResult AnotherHardcodedCredentials()
+        {
+            string user = "root";
+            string pass = "toor";
+            ViewBag.Credentials = user + ":" + pass;
+            return View();
+        }
+
+        // Vulnerable: Null pointer dereference
+        [HttpGet]
+        public IActionResult AnotherNullDereference()
+        {
+            string s = null;
+            int len = s.Length; // null dereference
+            ViewBag.Len = len;
+            return View();
+        }
     {
         // 1. Reflected XSS
         [HttpGet]

@@ -13,6 +13,9 @@ namespace VulnerableCoreApp.Repository
         public CommentsRepository()
         {
             Comments = new List<Comment>();
+            // Vulnerable: Hardcoded credentials
+            string dbUser = "admin";
+            string dbPassword = "P@ssw0rd123";
         }
 
         public CommentsViewModel GetAll()
