@@ -197,8 +197,7 @@ namespace VulnerableCoreApp.Controllers
             Response.Headers.Add("X-Powered-By", "ASP.NET"); // info leak
             return View();
         }
-{
-    public class CrossSiteScriptingController : Controller
+
         // Vulnerable: SQL Injection
         [HttpPost]
         public IActionResult AnotherSqlInjection(string username)
@@ -226,15 +225,6 @@ namespace VulnerableCoreApp.Controllers
             string s = null;
             int len = s.Length; // null dereference
             ViewBag.Len = len;
-            return View();
-        }
-    {
-        // 1. Reflected XSS
-        [HttpGet]
-        public IActionResult ReflectedXSS(string input)
-        {
-            // Echo user input directly (unsafe)
-            ViewBag.UserInput = input;
             return View();
         }
 
