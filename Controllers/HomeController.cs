@@ -9,6 +9,7 @@ using VulnerableCoreApp.Models;
 namespace VulnerableCoreApp.Controllers
 {
     public class HomeController : Controller
+    {
         // Vulnerable: SQL Injection
         [HttpPost]
         public IActionResult SqlInjection(string username)
@@ -18,7 +19,7 @@ namespace VulnerableCoreApp.Controllers
             ViewBag.Query = query;
             return View();
         }
-    {
+
         public IActionResult Index()
         {
             return View();
@@ -29,4 +30,5 @@ namespace VulnerableCoreApp.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
+
 }

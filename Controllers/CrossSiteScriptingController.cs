@@ -5,6 +5,9 @@ using VulnerableCoreApp.Models;
 using VulnerableCoreApp.Repository;
 
 namespace VulnerableCoreApp.Controllers
+{
+    public class CrossSiteScriptingController : Controller
+    {
         // 11. SQL Injection with direct DB call (simulated)
         [HttpPost]
         public IActionResult RealSqlInjection(string username)
@@ -20,15 +23,10 @@ namespace VulnerableCoreApp.Controllers
         [HttpGet]
         public IActionResult BufferOverflow(string input)
         {
-            unsafe
-            {
-                fixed (char* p = input)
-                {
-                    char buffer[5];
-                    for (int i = 0; i < input.Length; i++)
-                        buffer[i] = p[i]; // overflow if input.Length > 5
-                }
-            }
+            // Simulated buffer overflow (C# managed arrays)
+            char[] buffer = new char[5];
+            for (int i = 0; i < input.Length && i < buffer.Length; i++)
+                buffer[i] = input[i];
             return View();
         }
 
