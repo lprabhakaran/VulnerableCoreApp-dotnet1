@@ -110,7 +110,6 @@ namespace VulnerableCoreApp.Controllers
         public IActionResult UnreachableCode()
         {
             return View();
-            int x = 1; // unreachable
         }
 
         // 22. Empty catch block (reliability)
@@ -138,7 +137,7 @@ namespace VulnerableCoreApp.Controllers
         [HttpGet]
         public IActionResult UninitializedVariable()
         {
-            int x;
+            int x = 0;
             ViewBag.X = x; // use before assignment
             return View();
         }
