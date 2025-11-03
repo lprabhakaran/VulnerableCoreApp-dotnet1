@@ -1,4 +1,4 @@
-# Vulnerable ASP.NET Core 2.0 Web Application test 
+# Vulnerable ASP.NET Core 2.0 Web Application test test
 
 The main idea behind this project is to show most common vulnerabilities that can be found in Web applications developed in ASP.NET Core framework. This application provides vulnerable code examples. You can use it as a reminder for writing secure code. There is possiblity that I didn't understand some vulnerablities, so don't trust this practical examples like they are valid references.
 
